@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
-* Студент: [Дмитрий](https://up.htmlacademy.ru/javascript/25/user/1795063).
-* Наставник: `Неизвестно`.
+* Студент: [Дмитрий](https://up.htmlacademy.ru/javascript/24/user/1795063).
+* Наставник: [Ирина Фролова](https://htmlacademy.ru/profile/id1043867).
 
 ---
 
