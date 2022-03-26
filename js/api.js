@@ -1,8 +1,12 @@
 import { showAlert, uploadForm, getErrorMessage, getSuccessMessage } from './utils.js';
+import { closeEditorWindow } from './close-popup.js';
+
+const URL_PATH = 'https://25.javascript.pages.academy/kekstagram';
+const uploadSubmit = document.querySelector('#upload-submit');
 
 const getData = (onSuccess) => {
   fetch(
-    'https://24.javascript.pages.academy/kekstagram/data',
+    `${URL_PATH}/data`,
     {
       method: 'GET',
       credentials: 'same-origin',
@@ -15,26 +19,33 @@ const getData = (onSuccess) => {
 
 const setUserFormSubmit = (onSuccess) => {
   uploadForm.addEventListener('submit', (evt) => {
+    uploadSubmit.setAttribute('disabled', true);
     evt.preventDefault();
+
 
     const formData = new FormData(evt.target);
 
     fetch(
-      'https://24.javascript.pages.academy/kekstagram',
+      URL_PATH,
       {
         method: 'POST',
         body: formData,
       },
-    ) .then((response) => {
-      if (response.ok) {
-        onSuccess(getSuccessMessage());
-      } else {
-        getErrorMessage();
-      }
-    },
     )
-      .catch((err) => showAlert(err));
+      .then((response) => {
+        if (response.ok) {
+          onSuccess(getSuccessMessage());
+          uploadSubmit.setAttribute('disabled', false);
+        } else {
+          getErrorMessage();
+        }
+      },
+      )
+      .catch((err) => {
+        closeEditorWindow();
+        showAlert(err);
+      });
   });
 };
 
-export { setUserFormSubmit, getData };
+export { setUserFormSubmit, getData};
