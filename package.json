@@ -16,13 +16,15 @@
     "eslint-config-htmlacademy": "5.0.0"
   },
   "license": "MIT",
-  "dependencies": {},
   "scripts": {
     "start": "browser-sync start --server --no-ui --files \"js/**/*.js\"",
-    "lint": "eslint js/"
+    "test": "lint js/"
   },
   "engines": {
     "node": "16.x",
     "npm": "8.x"
+  },
+  "dependencies": {
+    "nouislider": "15.5.0"
   }
 }
