@@ -7,6 +7,7 @@ const photoDescription = document.querySelector('.social__caption');
 const commentsList = bigPicture.querySelector('.social__comments');
 const commentsLoadButton = bigPicture.querySelector('.comments-loader');
 const commentsShown = bigPicture.querySelector('.comments-shown');
+const ESC_KEY_CODE = 27;
 let count = 0;
 let commentToShowFrom = 5;
 let commentsLeft;
@@ -85,7 +86,7 @@ const openBigPicture = (data) => {
 
   window.addEventListener('keyup', (evt) => {
     evt.preventDefault();
-    if (evt.keyCode === 27) {
+    if (evt.keyCode === ESC_KEY_CODE) {
       commentsLoadButton.removeEventListener('click', onClickLoadButton);
       closeThisWindow();
     }

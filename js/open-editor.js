@@ -10,7 +10,7 @@ const closeButton = document.querySelector('#upload-cancel');
 const scaleInput = document.querySelector('.scale__control--value');
 const scaleSmallerButton = document.querySelector('.scale__control--smaller');
 const scaleBiggerButton = document.querySelector('.scale__control--bigger');
-const SCALE_CNANGE_STEP = 25;
+const SCALE_CHANGE_STEP = 25;
 const SCALE_MIN_VALUE = 25;
 const SCALE_MAX_VALUE = 100;
 const SCALE_DEFAULT_VALUE = 100;
@@ -26,19 +26,21 @@ const setScaleValue = (scale) => {
 };
 
 const decreaseScale = () => {
-  if ((scaleValue - SCALE_CNANGE_STEP) > 25) {
-    scaleValue = scaleValue - SCALE_CNANGE_STEP;
+  if ((scaleValue - SCALE_CHANGE_STEP) > 25) {
+    scaleValue = scaleValue - SCALE_CHANGE_STEP;
     setScaleValue(scaleValue);
   } else {
+    scaleValue = SCALE_MIN_VALUE;
     setScaleValue(SCALE_MIN_VALUE);
   }
 };
 
 const increaseScale = () => {
-  if ((scaleValue + SCALE_CNANGE_STEP) <= 100) {
-    scaleValue = scaleValue + SCALE_CNANGE_STEP;
+  if ((scaleValue + SCALE_CHANGE_STEP) <= 100) {
+    scaleValue = scaleValue + SCALE_CHANGE_STEP;
     setScaleValue(scaleValue);
   } else {
+    scaleValue = SCALE_MAX_VALUE;
     setScaleValue(SCALE_MAX_VALUE);
   }
 };

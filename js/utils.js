@@ -6,8 +6,8 @@ const MAX_HASHTAG_NUMBER = 5;
 const MAX_COMMENT_LENGTH = 140;
 const ALERT_SHOW_TIME = 5000;
 const uploadForm = document.querySelector('.img-upload__form');
-const successTemaplate = document.querySelector('#success').content.querySelector('.success');
-const errorTempalte = document.querySelector('#error').content.querySelector('.error');
+const successTemplate = document.querySelector('#success').content.querySelector('.success');
+const errorTemplate = document.querySelector('#error').content.querySelector('.error');
 
 const getSliderAvailable = () => {
   if (sliderElement.noUiSlider !== undefined) {
@@ -20,10 +20,6 @@ const getRandomNumberFromRange = function(from, to) {
   const upper = Math.floor(Math.max(Math.abs(from), Math.abs(to)));
   const result = Math.random() * (upper - lower + 1) + lower;
   return Math.floor(result);
-};
-
-const checkMaxLength = function(str, maxLength) {
-  return (str.length <= maxLength);
 };
 
 const onValidHashtag = function (tagList) {
@@ -73,7 +69,7 @@ const showAlert = () => {
   alertImg.style.display = 'block';
   alertImg.style.margin = '30vh auto';
   alertContainer.append(alertImg);
-  alertContainer.style.top = 0;
+  alertContainer.style.top = '0';
   alertContainer.style.backgroundColor = '#000000ad';
   alertContainer.style.position = 'absolute';
   alertContainer.style.width = '100vw';
@@ -90,7 +86,7 @@ const showAlert = () => {
 const getSuccessMessage = () => {
   closeEditorWindow();
   uploadForm.reset();
-  const element = successTemaplate.cloneNode(true);
+  const element = successTemplate.cloneNode(true);
   element.querySelector('.success__button').addEventListener('click', () => {
     element.remove();
   });
@@ -107,7 +103,7 @@ const getSuccessMessage = () => {
 const getErrorMessage = () => {
   closeEditorWindow();
   uploadForm.reset();
-  const element = errorTempalte.cloneNode(true);
+  const element = errorTemplate.cloneNode(true);
   element.querySelector('.error__button').addEventListener('click', () => {
     element.remove();
   });
@@ -123,7 +119,6 @@ const getErrorMessage = () => {
 
 export {
   getRandomNumberFromRange,
-  checkMaxLength,
   onValidHashtag,
   showAlert,
   getSliderAvailable,
